@@ -1,0 +1,60 @@
+#spring:
+##  main:
+##    banner-mode: off
+#  # create and drop tables and sequences, loads import.sql
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.Oracle10gDialect
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        show_sql: true
+#        format_sql: true
+#  datasource:
+#    # Oracle settings
+#    url: jdbc:oracle:thin:@10.1.4.194:1521:ericDB
+#    username: eric
+#    password: passw0rd
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+#    #Initialize the database using data.sql script
+#    initialization-mode: always
+#    hikari:
+#      connection-timeout: 60000
+#      maximum-pool-size: 5
+#    # Keep the connection alive if idle for a long time (needed in production)
+#    testWhileIdle: true
+#    validationQuery: SELECT 1
+#  #spring resource
+#  thymeleaf:
+#    prefix: classpath:/templates/
+#    cache: false
+#  resources:
+#    static-locations: classpath:/static/
+#    cache:
+#      period: 0
+#  # Spring Security / Queries for AuthenticationManagerBuilder
+#  queries:
+#    accounts:
+#      query: select EMAIL, PASSWORD, 1 as enabled from ACCOUNT where EMAIL=? and ACTIVE = 1
+#    roles-query: select a.EMAIL, r.ROLE from ACCOUNT a inner join ACCOUNT_ROLE ar on(a.ID=ar.ACCOUNT_ID) inner join role r on(ar.ROLE_ID=r.ID) where a.EMAIL=?
+#
+#logging:
+#  pattern:
+#    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+#  level:
+#    org:
+#      hibernate:
+#        SQL: DEBUG
+#        type:
+#          descriptor:
+#            sql: TRACE
+#            sql.BasicBinder: TRACE
+#      springframework:
+#        web: DEBUG
+#        security: DEBUG
+#        jdbc:
+#          core:
+#            JdbcTemplate: DEBUG
+#            StatementCreatorUtils: TRACE
+#logging.level: DEBUG
